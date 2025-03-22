@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b1dlc6hailrr3"
-path="res://.godot/imported/HarreeghPoppedCyrillic.ttf-796785f7f0c5a732e18a2a160afd7151.fontdata"
+path="res://.godot/imported/HarreeghPoppedCyrillic.ttf-354bad4e76a1f066a3653e4bc10e6a9a.fontdata"
 
 [deps]
 
-source_file="res://HarreeghPoppedCyrillic.ttf"
-dest_files=["res://.godot/imported/HarreeghPoppedCyrillic.ttf-796785f7f0c5a732e18a2a160afd7151.fontdata"]
+source_file="res://resource/HarreeghPoppedCyrillic.ttf"
+dest_files=["res://.godot/imported/HarreeghPoppedCyrillic.ttf-354bad4e76a1f066a3653e4bc10e6a9a.fontdata"]
 
 [params]
 

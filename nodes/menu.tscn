@@ -1,0 +1,303 @@
+[gd_scene load_steps=10 format=3 uid="uid://bob3nsvpnabmi"]
+
+[ext_resource type="Script" uid="uid://cu3j51qs3ojoo" path="res://scripts/menu.gd" id="1_8hci8"]
+[ext_resource type="Script" uid="uid://cs6kirw7gxkul" path="res://scripts/margin_container.gd" id="2_upn4g"]
+[ext_resource type="Script" uid="uid://dkx1q5pln4rwq" path="res://scripts/p_settings.gd" id="3_jday5"]
+[ext_resource type="FontFile" uid="uid://b1dlc6hailrr3" path="res://resource/HarreeghPoppedCyrillic.ttf" id="4_ewqsw"]
+[ext_resource type="StyleBox" uid="uid://bnvyf2wsn20ta" path="res://menu_style_box_flat.tres" id="5_fhr7y"]
+[ext_resource type="AudioStream" uid="uid://ds183trevub0h" path="res://resource/e313261e08a02c5.mp3" id="6_2l3r8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0.351563, 0.351563, 0.351563, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+bg_color = Color(0.303233, 0.303233, 0.303233, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8hci8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -204.5
+offset_right = 312.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_upn4g")
+
+[node name="P_Settings" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("3_jday5")
+
+[node name="Label" type="Label" parent="MarginContainer/P_Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.5
+offset_right = 61.5
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 40
+text = "Настройки"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBC_Settings" type="VBoxContainer" parent="MarginContainer/P_Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -99.5
+offset_right = 173.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/P_Settings/VBC_Settings"]
+layout_mode = 2
+text = "Громкость звука"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/P_Settings/VBC_Settings"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.01
+
+[node name="Label2" type="Label" parent="MarginContainer/P_Settings/VBC_Settings"]
+layout_mode = 2
+text = "Разрешение экрана"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/P_Settings/VBC_Settings"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/P_Settings/VBC_Settings"]
+layout_mode = 2
+text = "Режим экрана"
+
+[node name="OptionButton2" type="OptionButton" parent="MarginContainer/P_Settings/VBC_Settings"]
+layout_mode = 2
+
+[node name="b_back" type="Button" parent="MarginContainer/P_Settings"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -58.5
+offset_right = 152.0
+offset_bottom = -18.5
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/disabled = ExtResource("5_fhr7y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/normal = ExtResource("5_fhr7y")
+text = "Назад"
+
+[node name="P_Main" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBC_Main" type="VBoxContainer" parent="MarginContainer/P_Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -99.5
+offset_right = 173.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="b_play" type="Button" parent="MarginContainer/P_Main/VBC_Main"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/disabled = ExtResource("5_fhr7y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/normal = ExtResource("5_fhr7y")
+text = "PLAY"
+
+[node name="b_settings" type="Button" parent="MarginContainer/P_Main/VBC_Main"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/disabled = ExtResource("5_fhr7y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/normal = ExtResource("5_fhr7y")
+text = "SETTINGS"
+
+[node name="b_quit" type="Button" parent="MarginContainer/P_Main/VBC_Main"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/disabled = ExtResource("5_fhr7y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/normal = ExtResource("5_fhr7y")
+text = "QUIT"
+
+[node name="b_about" type="Button" parent="MarginContainer/P_Main/VBC_Main"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/disabled = ExtResource("5_fhr7y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/normal = ExtResource("5_fhr7y")
+text = "ABOUT"
+
+[node name="Label" type="Label" parent="MarginContainer/P_Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.5
+offset_right = 61.5
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 40
+text = "Пиздатая игра!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P_About" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="b_back" type="Button" parent="MarginContainer/P_About"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -58.5
+offset_right = 152.0
+offset_bottom = -18.5
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/disabled = ExtResource("5_fhr7y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/normal = ExtResource("5_fhr7y")
+text = "Назад"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/P_About"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -97.0
+offset_right = 118.5
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Авторы:
+
+KiberLiss
+
+Ruarhid"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/P_About"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.5
+offset_right = 61.5
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("4_ewqsw")
+theme_override_font_sizes/font_size = 40
+text = "Пиздатая игра!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2l3r8")
+parameters/looping = true
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="ready" from="MarginContainer" to="MarginContainer" method="_on_ready"]
+[connection signal="ready" from="MarginContainer/P_Settings" to="MarginContainer/P_Settings" method="_on_ready"]
+[connection signal="ready" from="MarginContainer/P_Settings/VBC_Settings" to="MarginContainer/P_Settings/VBC_Settings" method="_on_ready"]
+[connection signal="value_changed" from="MarginContainer/P_Settings/VBC_Settings/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/P_Settings/b_back" to="MarginContainer" method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/P_Main/VBC_Main/b_play" to="MarginContainer" method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/P_Main/VBC_Main/b_settings" to="MarginContainer" method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/P_Main/VBC_Main/b_quit" to="MarginContainer" method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/P_Main/VBC_Main/b_about" to="MarginContainer" method="_on_about_pressed"]
+[connection signal="pressed" from="MarginContainer/P_About/b_back" to="MarginContainer" method="_on_back_pressed"]
+[connection signal="ready" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_ready"]
