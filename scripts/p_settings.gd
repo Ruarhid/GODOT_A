@@ -3,7 +3,6 @@ extends Panel
 
 
 func _on_ready() -> void:
-	
 # Заполняем разрешение экрана
 	var option_button = $VBC_Settings/OptionButton
 	for res in Global.resolutions:
@@ -15,7 +14,7 @@ func _on_ready() -> void:
 	# Подключаем сигналы
 	option_button.item_selected.connect(_on_resolution_selected)
 	option_button2.item_selected.connect(_on_screen_mode_selected)
-
+	
 func _on_screen_mode_selected(index: int):
 	# Получаем выбранный режим экрана
 	Global.ScreenMode = Global.screen_mode[index][1]

@@ -12,6 +12,24 @@ func _on_settings_pressed() -> void:
 	$P_Settings.visible = true
 	$P_Main.visible = false
 	$P_About.visible = false
+	
+	var ind
+	if Global.ScreenMode >= 0:
+		ind = Global.config.get_value("Display", "ScreenMode", Global.ScreenMode)
+		print("ind1 = ", ind)
+	if ind == 0:
+		print("ind = ", ind)
+		$P_Settings/VBC_Settings/OptionButton2.selected = 0
+	elif ind == 3:
+		print("ind = ", ind)
+		$P_Settings/VBC_Settings/OptionButton2.selected = 1
+	elif ind == 4:
+		print("ind = ", ind)
+		$P_Settings/VBC_Settings/OptionButton2.selected = 2
+	else:
+		print("Ошибка! Неизвестное значение разрешения")
+	
+	
 
 func _on_about_pressed() -> void:
 	$P_Settings.visible = false
