@@ -62,7 +62,6 @@ func set_default_settings():
 
 # Применение настроек к игре
 func apply_settings():
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume))
 	DisplayServer.window_set_mode(ScreenMode)
 	print("window_get_mode ", DisplayServer.window_get_mode())
 	print("Global.ScreenMode ", Global.ScreenMode)
