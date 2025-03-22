@@ -88,25 +88,22 @@ text = "Громкость звука"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/P_Settings/VBoxContainer"]
 layout_mode = 2
-step = 0.1
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Label2" type="Label" parent="MarginContainer/P_Settings/VBoxContainer"]
 layout_mode = 2
-text = "Музыка"
+text = "Разрешение экрана"
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/P_Settings/VBoxContainer/Label2"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -12.0
-offset_bottom = 12.0
-grow_horizontal = 0
-grow_vertical = 2
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/P_Settings/VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "1024×768"
+popup/item_0/id = 0
+popup/item_1/text = "800×600"
+popup/item_1/id = 1
 
 [node name="BACK" type="Button" parent="MarginContainer/P_Settings"]
 layout_mode = 1
