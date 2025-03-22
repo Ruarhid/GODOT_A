@@ -33,6 +33,7 @@ func load_settings():
 	if config.load(SETTINGS_PATH) != OK:
 		# Если файла нет, создаём с настройками по умолчанию
 		set_default_settings()
+		print("Файл конфигурации отсутсвует! Восстановление настроек")
 		save_settings()
 		return
 	
@@ -53,7 +54,7 @@ func save_settings():
 
 # Установка настроек по умолчанию
 func set_default_settings():
-	volume = 0.0
+	volume = 1.0
 	fullscreen = false
 
 # Применение настроек к игре

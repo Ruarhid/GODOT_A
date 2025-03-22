@@ -22,6 +22,10 @@ func _on_back_pressed() -> void:
 	$P_Settings.visible = false
 	$P_Main.visible = true
 	$P_About.visible = false
-	
+
+func _on_b_save_pressed() -> void:
+	Global.config.set_value("Audio", "volume", $P_Settings/VBC_Settings/HSlider.value)
+	Global.config.save(Global.SETTINGS_PATH)
+
 func _on_quit_pressed() -> void:
 	get_tree().quit()
