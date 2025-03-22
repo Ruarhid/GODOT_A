@@ -14,3 +14,7 @@ config/name="A"
 run/main_scene="uid://bob3nsvpnabmi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://config_script.gd"
