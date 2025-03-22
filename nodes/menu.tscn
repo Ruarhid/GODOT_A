@@ -131,33 +131,38 @@ text = "Режим экрана"
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ewqsw")
 
-[node name="b_default" type="Button" parent="MarginContainer/P_Settings/VBC_Settings"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/P_Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 11.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="b_back" type="Button" parent="MarginContainer/P_Settings/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_ewqsw")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
 theme_override_styles/disabled = ExtResource("5_fhr7y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
 theme_override_styles/normal = ExtResource("5_fhr7y")
-text = "Восстановить"
+text = "Назад"
 
-[node name="b_save" type="Button" parent="MarginContainer/P_Settings"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 397.0
-offset_top = -57.5
-offset_right = 597.0
-offset_bottom = -17.5
-grow_vertical = 0
+[node name="b_save" type="Button" parent="MarginContainer/P_Settings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_ewqsw")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
 theme_override_styles/disabled = ExtResource("5_fhr7y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
@@ -165,26 +170,19 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
 theme_override_styles/normal = ExtResource("5_fhr7y")
 text = "Сохранить"
 
-[node name="b_back" type="Button" parent="MarginContainer/P_Settings"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -58.0
-offset_right = 232.0
-offset_bottom = -18.0
-grow_vertical = 0
+[node name="b_default" type="Button" parent="MarginContainer/P_Settings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_ewqsw")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
 theme_override_styles/disabled = ExtResource("5_fhr7y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ouk20")
 theme_override_styles/normal = ExtResource("5_fhr7y")
-text = "Назад"
+text = "Восстановить"
 
 [node name="P_Main" type="Panel" parent="MarginContainer"]
 visible = false
@@ -350,9 +348,9 @@ parameters/looping = true
 [connection signal="ready" from="MarginContainer" to="MarginContainer" method="_on_ready"]
 [connection signal="ready" from="MarginContainer/P_Settings" to="MarginContainer/P_Settings" method="_on_ready"]
 [connection signal="value_changed" from="MarginContainer/P_Settings/VBC_Settings/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="MarginContainer/P_Settings/VBC_Settings/b_default" to="MarginContainer" method="_on_b_default_pressed"]
-[connection signal="pressed" from="MarginContainer/P_Settings/b_save" to="MarginContainer" method="_on_b_save_pressed"]
-[connection signal="pressed" from="MarginContainer/P_Settings/b_back" to="MarginContainer" method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/P_Settings/HBoxContainer/b_back" to="MarginContainer" method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/P_Settings/HBoxContainer/b_save" to="MarginContainer" method="_on_b_save_pressed"]
+[connection signal="pressed" from="MarginContainer/P_Settings/HBoxContainer/b_default" to="MarginContainer" method="_on_b_default_pressed"]
 [connection signal="pressed" from="MarginContainer/P_Main/VBC_Main/b_play" to="MarginContainer" method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/P_Main/VBC_Main/b_settings" to="MarginContainer" method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/P_Main/VBC_Main/b_quit" to="MarginContainer" method="_on_quit_pressed"]

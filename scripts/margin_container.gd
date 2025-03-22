@@ -1,5 +1,5 @@
 extends MarginContainer
-
+var sm
 func _on_ready() -> void:
 	$P_Settings.visible = false
 	$P_Main.visible = true
@@ -12,7 +12,7 @@ func _on_settings_pressed() -> void:
 	$P_Settings.visible = true
 	$P_Main.visible = false
 	$P_About.visible = false
-	
+
 	var ind
 	if Global.ScreenMode >= 0:
 		ind = Global.config.get_value("Display", "ScreenMode", Global.ScreenMode)
@@ -20,12 +20,15 @@ func _on_settings_pressed() -> void:
 	if ind == 0:
 		print("ind = ", ind)
 		$P_Settings/VBC_Settings/OptionButton2.selected = 0
+		sm = 0
 	elif ind == 3:
 		print("ind = ", ind)
 		$P_Settings/VBC_Settings/OptionButton2.selected = 1
+		sm = 1
 	elif ind == 4:
 		print("ind = ", ind)
 		$P_Settings/VBC_Settings/OptionButton2.selected = 2
+		sm = 2
 	else:
 		print("Ошибка! Неизвестное значение разрешения")
 	
@@ -68,7 +71,12 @@ func _on_quit_pressed() -> void:
 
 
 func _on_b_default_pressed() -> void:
-	Global.set_default_settings()
-	#$P_Settings/VBC_Settings/HSlider.value_changed = Global.volume
-	$P_Settings/VBC_Settings/OptionButton2.selected = Global.ScreenMode
 	
+	$P_Settings/VBC_Settings/HSlider.value = 1
+	print("ScreenMode = ", Global.ScreenMode)
+	print("ScreenMode = ", Global.volume)
+	if $P_Settings/VBC_Settings/OptionButton2.selected != Global.screen_mode[sm][1]:
+		$P_Settings/VBC_Settings/OptionButton2.selected = 0
+		DisplayServer.window_set_mode(0)
+	else:
+		pass
