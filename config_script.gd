@@ -21,9 +21,10 @@ var config = ConfigFile.new()
 
 # Переменные для хранения настроек
 var volume = 1 # Пример: громкость
-var fullscreen = false  # Пример: полноэкранный режим
+var ScreenMode = 4  # Пример: полноэкранный режим
 
 func _ready():
+
 	load_settings()  # Загружаем настройки при старте
 	apply_settings()  # Применяем настройки
 
@@ -39,13 +40,15 @@ func load_settings():
 	
 	# Загружаем значения из файла
 	volume = config.get_value("Audio", "volume", 1.0)  # 1.0 — значение по умолчанию
-	fullscreen = config.get_value("Display", "fullscreen", false)
+	ScreenMode = config.get_value("Display", "ScreenMode", 0) # 0 — значение по умолчанию
 
 # Функция сохранения настроек
 func save_settings():
 	# Записываем значения в секции
+	print("window_get_mode ", DisplayServer.window_get_mode())
+	print("Global.ScreenMode ", Global.ScreenMode)
 	config.set_value("Audio", "volume", volume)
-	config.set_value("Display", "fullscreen", fullscreen)
+	config.set_value("Display", "ScreenMode", ScreenMode)
 	
 	# Сохраняем файл
 	var err = config.save(SETTINGS_PATH)
@@ -55,9 +58,11 @@ func save_settings():
 # Установка настроек по умолчанию
 func set_default_settings():
 	volume = 1.0
-	fullscreen = false
+	ScreenMode = 3
 
 # Применение настроек к игре
 func apply_settings():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume))
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_mode(ScreenMode)
+	print("window_get_mode ", DisplayServer.window_get_mode())
+	print("Global.ScreenMode ", Global.ScreenMode)
