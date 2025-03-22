@@ -2,6 +2,7 @@ extends Control
 
 
 func _on_ready() -> void:
+	$AudioStreamPlayer.play()
 	$MarginContainer/P_Settings.visible = false
 	$MarginContainer/P_Main.visible = true
 	print("START")
@@ -27,3 +28,7 @@ func _on_back_pressed() -> void:
 
 func _on_audio_stream_player_ready() -> void:
 	$AudioStreamPlayer.play()
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	$AudioStreamPlayer.volume_db = linear_to_db(value)

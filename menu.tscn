@@ -88,6 +88,7 @@ text = "Громкость звука"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/P_Settings/VBoxContainer"]
 layout_mode = 2
+step = 0.1
 value = 100.0
 
 [node name="Label2" type="Label" parent="MarginContainer/P_Settings/VBoxContainer"]
@@ -95,11 +96,17 @@ layout_mode = 2
 text = "Музыка"
 
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/P_Settings/VBoxContainer/Label2"]
-layout_mode = 2
-offset_left = 326.0
-offset_top = 1.5
-offset_right = 350.0
-offset_bottom = 25.5
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="BACK" type="Button" parent="MarginContainer/P_Settings"]
 layout_mode = 1
@@ -218,6 +225,7 @@ stream = ExtResource("4_4hy44")
 parameters/looping = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="value_changed" from="MarginContainer/P_Settings/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/P_Settings/BACK" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/P_Main/VBoxContainer/PLAY" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/P_Main/VBoxContainer/SETTINGS" to="." method="_on_settings_pressed"]
